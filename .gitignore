@@ -1,0 +1,57 @@
+# Abhängigkeiten
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+
+# Build-Ausgaben
+dist/
+build/
+out/
+.next/
+.nuxt/
+.svelte-kit/
+
+# Umgebungsvariablen (niemals einchecken!)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testabdeckung
+coverage/
+.nyc_output/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor-Einstellungen (persönlich, nicht für das Team)
+.vscode/settings.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# KI-Tool: lokaler Zustand (nicht für das Team — nur persönliche Sitzungsdaten)
+.claude/worktrees/
+.claude/todos/
+.cursor/
+
+# WICHTIG: Diese Dateien MÜSSEN eingecheckt sein (nicht ignorieren!)
+# CLAUDE.md, .cursorrules, .github/copilot-instructions.md
+# → Diese Dateien sind der gemeinsame KI-Kontext für das gesamte Team.
+# → Änderungen daran müssen committed und gepusht werden,
+#    damit alle Teammitglieder denselben Stand haben.
+# → Nie in .gitignore aufnehmen!
+
+# Temporäre Dateien
+*.tmp
+*.bak
+*.orig

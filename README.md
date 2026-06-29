@@ -73,6 +73,9 @@ ki-projekt-template/
 │       └── IMPLEMENTATION.md             ← Schrittweiser Umsetzungsplan (TDD)
 └── docs/
     ├── setup.md                           ← Werkzeug-Einrichtungsanleitung
+    ├── quickstart.md                      ← Schnelleinstieg
+    ├── diagramme.md                       ← Mermaid-Konventionen (UCD, Klassen-, Sequenzdiagramm …)
+    ├── github-classroom.md                ← Anleitung für Lehrende (optional)
     └── lehrkonzept-ki-gestuetzte-entwicklung.md  ← Pädagogisches Quelldokument
 ```
 

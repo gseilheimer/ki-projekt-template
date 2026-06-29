@@ -174,9 +174,9 @@ git commit -m "feat(frontend): [was wurde gebaut]"
 - [ ] Alle Tests bestehen: `npm test`
 - [ ] Manuelle Prüfung: Abnahmekriterien aus `FEATURE.md` durchgehen
 - [ ] `BACKLOG.md` aktualisieren: Status auf `✅ fertig` setzen
-- [ ] Merge Request in GitLab anlegen
+- [ ] Pull Request auf GitHub anlegen
 
 ```bash
 git push origin feature/01-[name]
-# → GitLab öffnen → „Merge Request anlegen" → Teamkollegen als Prüfende zuweisen
+# → GitHub öffnen → „Compare & pull request" → Teamkollegen als Reviewer zuweisen
 ```

@@ -84,7 +84,7 @@ git pull origin main
 git fetch origin
 git rebase origin/main
 
-# Merge Request in GitLab anlegen:
+# Pull Request auf GitHub anlegen:
 # → Titel: "feat: [Feature-Name]"
 # → Beschreibung: Was wurde gebaut? Was wurde getestet?
 # → Prüfer: Teamkollegen zuweisen
@@ -93,8 +93,8 @@ git rebase origin/main
 ### Merge-Regeln (Teamvereinbarung)
 
 - Kein direktes Pushen auf `main`
-- Jeder Merge Request braucht mindestens eine Freigabe
-- Tests müssen lokal laufen, bevor der Merge Request erstellt wird
+- Jeder Pull Request braucht mindestens eine Freigabe (Review / Approval)
+- Tests müssen lokal laufen, bevor der Pull Request erstellt wird
 - Gemeinsam genutzte Dateien (Datenmodell, Typen) nur nach Absprache ändern
 
 ---

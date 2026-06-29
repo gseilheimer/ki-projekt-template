@@ -26,7 +26,7 @@ git clone https://github.com/EUER-NAME/ki-projekt-template.git
 cd ki-projekt-template
 ```
 
-> **Hochschul-GitLab (0bw.edu-space.de)?** Dann stattdessen **„Fork"** verwenden und mit der GitLab-Clone-URL klonen. Der weitere Workflow (Merge Requests) bleibt identisch.
+> **Zugang zu GitHub:** HSO-Studierende melden sich über das **GitHub Campus**-Programm der Hochschule an. Alle anderen (HSLU, extern) legen ein kostenloses Konto auf [github.com](https://github.com) an. Der Workflow ist für alle identisch.
 
 ### Schritt 2: KI-Werkzeug einrichten
 
@@ -91,6 +91,17 @@ ki-projekt-template/
 `CLAUDE.md`, `.cursorrules` und `.github/copilot-instructions.md` sind **Projektdateien** — keine persönliche Editor-Konfiguration. Sie müssen committed und gepusht werden, damit alle Teammitglieder denselben KI-Kontext haben — unabhängig davon, welches Werkzeug sie verwenden.
 
 → Details zum Workflow: **[ROADMAP.md](ROADMAP.md)** → Abschnitt „KI-Kontext synchronisieren"
+
+---
+
+## Für Lehrende: GitHub Classroom (optional)
+
+Für größere Kurse lässt sich diese Vorlage über **GitHub Classroom** verteilen — aus
+einem Einladungslink entsteht automatisch pro Team ein eigenes Repository. Funktioniert
+auch für gemischte Kohorten (HSO über GitHub Campus, HSLU und externe Teilnehmende mit
+eigenem Konto).
+
+→ Anleitung: **[docs/github-classroom.md](docs/github-classroom.md)**
 
 ---
 

@@ -34,7 +34,7 @@
 |---|---|
 | `offen` | Noch nicht begonnen |
 | `in Arbeit` | Wird gerade umgesetzt |
-| `Prüfung` | Merge Request offen, wartet auf Freigabe |
+| `Prüfung` | Pull Request offen, wartet auf Freigabe |
 | `✅ fertig` | Abgeschlossen, eingemergt, Tests bestanden |
 | `blockiert` | Wartet auf anderes Feature oder Teamentscheidung |
 

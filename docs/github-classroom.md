@@ -56,8 +56,13 @@ Einzelarbeiten).
 
 ### 5. (Optional) Autograding
 Unter **Add tests** lassen sich Befehle hinterlegen, die bei jedem Push laufen
-(z. B. `npm test`). Passt gut zum TDD-Ansatz der Vorlage — die Abnahmekriterien aus
-`FEATURE.md` werden so automatisch geprüft. Für den Einstieg nicht nötig.
+(z. B. `npm test`). Passt zu Projekten mit **Node-/Test-Stack** (TDD) — die Abnahmekriterien
+aus `FEATURE.md` werden so automatisch geprüft. Für den Einstieg nicht nötig.
+
+> **Achtung — statische PWA:** Eine Vanilla-PWA (wie der „Touristik Guide") hat keinen
+> Test-Runner; `npm test` greift dort nicht. Die Abnahme erfolgt per Browser-Verifikation
+> (DevTools), siehe `docs/setup.md` → „Verifikation: PWA vs. Test-Stack". Autograding hier
+> also weglassen oder nur auf reine Logik-Helfer (ohne Browser-APIs) beschränken.
 
 ### 6. Einladungslink verteilen
 Classroom erzeugt einen **Invitation link**. Diesen Link teilst du im Kurs (Moodle).

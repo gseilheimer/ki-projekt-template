@@ -131,6 +131,57 @@ codex --system-prompt "$(cat CLAUDE.md)" "Was ist der nächste offene Task im Ba
 
 ---
 
+## App lokal starten & prüfen — statische PWA (z. B. Touristik Guide)
+
+> Gilt für eine **statische Vanilla-PWA** (HTML + CSS + Vanilla-JS, kein Build, kein npm).
+> Für Projekte mit echtem Node-Stack siehe „Verifikation: PWA vs. Test-Stack" unten.
+
+Eine PWA (ServiceWorker, Cache, Geolocation, Kamera) läuft nur im **„secure context"** —
+`http://localhost` zählt als sicher. Die Datei direkt per Doppelklick (`file://…/index.html`)
+zu öffnen **funktioniert nicht** (der ServiceWorker registriert sich nicht). Daher immer über
+einen lokalen Server starten. Identisch unter Windows und macOS.
+
+**Empfohlen (VS Code, kein Node nötig): Erweiterung „Live Server"**
+```
+1. VS Code: Erweiterung „Live Server" (Ritwick Dey) installieren
+2. Repo-Ordner öffnen, index.html im Editor öffnen
+3. Unten rechts „Go Live" klicken → öffnet http://localhost:5500
+```
+
+**Alternativen:**
+```bash
+python3 -m http.server 5500      # macOS eingebaut; Windows: py -m http.server 5500
+npx serve                        # falls Node vorhanden
+```
+
+**Prüfen (Browser-DevTools, Chrome/Edge — auf beiden Betriebssystemen gleich):**
+- *Application* → *Service Workers*: registriert/aktiv? Bei Änderungen *Update*/*Unregister*.
+- *Application* → *Cache Storage*: enthält der Cache die Kern-Assets?
+- *Network* → Schalter *Offline*: lädt die App weiterhin (cache-first)?
+- *Console*: keine offenen `console.log("ToDo: …")`-Stubs, keine Fehler.
+
+Randnotizen: Google Maps braucht einen API-Key; Kamera/Geolocation/QR brauchen eine echte
+Kamera + Browser-Freigabe — auf `localhost` aber **ohne** HTTPS-Zertifikat nutzbar.
+
+### Verifikation: PWA vs. Test-Stack
+
+Die generische Vorlage geht von **testgetriebener Entwicklung** (`npm test`, z. B. vitest) aus
+— passend für Projekte mit Node-/Test-Stack. Eine **statische Vanilla-PWA** hat keinen
+Test-Runner; dort ist die **Browser-Verifikation oben der „grüne Test"**. Grund: der Code
+nutzt Browser-APIs (ServiceWorker, Cache, Geolocation, MediaDevices) und das globale
+IIFE-Muster — beides ist in Node/jsdom nicht ohne Umbau + Mocking testbar, der ServiceWorker
+gar nicht. Wählt also nach Projekt:
+
+| Projektart | „Fertig"-Nachweis |
+|---|---|
+| Statische PWA (vanilla) | Browser-DevTools (Application/Cache/Offline), Abnahmekriterien durchgehen |
+| App mit Node-/Test-Stack | `npm test` (TDD: Test rot → Umsetzung → Test grün) |
+
+*Optional (Kür):* Reine Logik **ohne** Browser-Abhängigkeit (z. B. eine Distanz- oder
+Validierungsfunktion) lässt sich auch in einer PWA mit vitest unit-testen — kein Muss.
+
+---
+
 ## Diagramme (Mermaid)
 
 Alle Diagramme werden als **Mermaid** im Markdown notiert — GitHub und VS Code rendern das

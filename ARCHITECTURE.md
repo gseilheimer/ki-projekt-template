@@ -48,6 +48,21 @@ project-root/
     └── types.js           ← Gemeinsame Datentypen (NUR nach Absprache ändern!)
 ```
 
+**Komponenten-/Datenfluss (Mermaid):** Konvention → [`docs/diagramme.md`](docs/diagramme.md) Abschnitt 6.
+
+```mermaid
+flowchart LR
+    subgraph Client["Endgerät (Browser)"]
+        ui[Frontend / UI]
+    end
+    subgraph Backend
+        api[API / Logik]
+        data[(Daten)]
+    end
+    ui <-->|fetch| api
+    api <--> data
+```
+
 ---
 
 ## API-Endpunkte
@@ -78,6 +93,20 @@ Booking:
   - userId: string      ← Verweis auf User
   - date: string (ISO 8601)
   - status: "open" | "confirmed" | "cancelled"
+```
+
+**Als Klassendiagramm (Mermaid):** Konvention → [`docs/diagramme.md`](docs/diagramme.md) Abschnitt 2.
+
+```mermaid
+classDiagram
+    class [Entität1] {
+        +string id
+        +string name
+    }
+    class [Entität2] {
+        +string id
+    }
+    [Entität1] "1" --> "0..*" [Entität2] : [Beziehung]
 ```
 
 > Das Datenmodell betrifft alle Features gleichzeitig — Änderungen nur nach Teamabsprache.

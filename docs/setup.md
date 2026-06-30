@@ -131,6 +131,22 @@ codex --system-prompt "$(cat CLAUDE.md)" "Was ist der nächste offene Task im Ba
 
 ---
 
+## Diagramme (Mermaid)
+
+Alle Diagramme werden als **Mermaid** im Markdown notiert — GitHub und VS Code rendern das
+ohne Zusatzsoftware, und Änderungen erscheinen als lesbarer Diff im Pull Request. Der
+KI-Agent kann Diagramme **direkt erzeugen**, z. B.:
+
+> *„Erzeuge ein Mermaid-UseCase-Diagramm nach `docs/diagramme.md` für die Use Cases in
+> `requirements/REQUIREMENTS.md`."*
+
+Konventionen + fertige Vorlagen (UCD, Klassen-, Sequenz-, Komponentendiagramm …):
+[`docs/diagramme.md`](diagramme.md). Wo welches Diagramm hingehört — UCD → `USERSTORY.md`,
+Klassen-/Komponentendiagramm → `ARCHITECTURE.md`, Sequenzdiagramm → `IMPLEMENTATION.md`
+(in der Beispiel-Feature-Vorlage sind die Gerüste bereits eingebettet).
+
+---
+
 ## Häufige Probleme
 
 **„Der Agent kennt mein Projekt nicht"**  

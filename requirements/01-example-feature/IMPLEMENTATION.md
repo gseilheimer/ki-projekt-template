@@ -23,6 +23,19 @@
 - Endpunkt: `GET /api/[ressource]?q=[suchbegriff]`
 - Rückgabe: `[{ id, name, ... }]`
 
+**Ablauf als Sequenzdiagramm (Mermaid):** Konvention → [`docs/diagramme.md`](../../docs/diagramme.md) Abschnitt 5.
+
+```mermaid
+sequenceDiagram
+    actor Nutzer
+    participant FE as Frontend
+    participant BE as Backend/API
+    Nutzer->>FE: [Aktion auslösen]
+    FE->>BE: [Request, z. B. GET /api/...]
+    BE-->>FE: [Response, z. B. JSON]
+    FE-->>Nutzer: [Ergebnis anzeigen]
+```
+
 ---
 
 ## Task 1: Backend — [Beschreibung]

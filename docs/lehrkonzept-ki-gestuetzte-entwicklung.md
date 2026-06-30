@@ -248,6 +248,19 @@ Kritischer Pfad: `00 → 01 → 02 → 04 → 05 → 06` — das ist die minimal
 
 ---
 
+### 1.6 diagramme.md — Modelle als Mermaid
+
+Alle Modelle (UseCase-, Klassen-, Sequenz-, Komponentendiagramm …) werden als **Mermaid**
+direkt im Markdown notiert. Vorteil: GitHub und VS Code rendern Mermaid ohne Zusatzsoftware,
+und Diagramm-Änderungen sind im Pull Request als lesbarer Diff sichtbar — kein Bild-Anhang,
+keine separate Toolchain. Der **KI-Agent kann die Diagramme direkt erzeugen** („Erzeuge ein
+Mermaid-UseCase-Diagramm nach `docs/diagramme.md` für …"). Konventionen und Vorlagen stehen
+in `docs/diagramme.md`; in den Feature-Dateien sind die Gerüste schon eingebettet
+(UCD → `USERSTORY.md`, Klassen-/Komponentendiagramm → `ARCHITECTURE.md`,
+Sequenzdiagramm → `IMPLEMENTATION.md`).
+
+---
+
 ## 2. Der Workflow: Von der Idee zur laufenden Anwendung
 
 ### Phase 0 — Gemeinsames Verständnis schaffen (vor dem ersten Code)

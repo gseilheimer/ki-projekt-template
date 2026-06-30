@@ -51,6 +51,15 @@ desktop.ini
 #    damit alle Teammitglieder denselben Stand haben.
 # → Nie in .gitignore aufnehmen!
 
+# Musterlösungen — NIE ins öffentliche Template/Repo einchecken
+# Entscheidung 2026-06-30: Server-ML bleibt offen & web-served (Live-Demo + bereits
+# verlinkte MLv2026); geschützt wird hier nur die Repo-Hygiene, damit *_ML nicht
+# versehentlich im öffentlichen Template landet. Lösungen liegen auf dem Server bzw.
+# außerhalb des Repos (siehe _meta/task.md).
+**/*_ML/
+**/*_ML_inkl_*/
+loesungen/
+
 # Temporäre Dateien
 *.tmp
 *.bak

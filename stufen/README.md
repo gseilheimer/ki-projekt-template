@@ -44,7 +44,9 @@ ServiceWorker nicht) — am einfachsten VS Code **„Live Server"**. Details + D
 
 - **`serviceworker.js` → `PATH_ROOT`** auf den eigenen Deploy-/Server-Pfad setzen (Marker `// TODO: Pfad anpassen`).
 - **`assets/js/n8n.js` → `CONFIG`** (Aufgabe **B2**) auf den eigenen n8n-Workspace anpassen.
-- **`04-karte`** braucht einen **Google-Maps-API-Key**; **`06-qr-scan`** die Bibliothek **jsQR**.
+- **`04-karte`** braucht einen **Google-Maps-API-Key**: in `C/index.html` steht der Platzhalter
+  `DEIN_GOOGLE_MAPS_API_KEY` — eigenen Key einsetzen, aber **nicht committen** (am besten pro
+  Deploy setzen und per HTTP-Referrer einschränken). **`06-qr-scan`** braucht die Bibliothek **jsQR**.
 
 > **Hinweis:** Für ein *eigenes* Projekt (nicht die LB3-Übung) ersetzt ihr `stufen/` durch
 > euren eigenen Code — die Arbeitsweise (requirements/, Marker, Browser-Verifikation) bleibt gleich.

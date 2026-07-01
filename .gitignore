@@ -60,6 +60,13 @@ desktop.ini
 **/*_ML_inkl_*/
 loesungen/
 
+# Secrets / Zugangsdaten — NIE einchecken
+# (z. B. SFTP-Deploy-Config mit Klartext-Passwort aus dem VS-Code-SFTP-Plugin)
+**/sftp.json
+.vscode/
+**/*.env
+.env
+
 # Temporäre Dateien
 *.tmp
 *.bak

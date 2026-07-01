@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">                                                  <!-- utf-8 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">    <!-- stop zoom -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="C.Merschroth - www.hs-offenburg.de; & G.Seilheimer - www.contic.de /">
+	<meta name="description" content="OBW - Workshop">
+
+	<link rel="shortcut icon" href="media/favicon.png">                     <!-- favicon -->
+
+	<link rel="manifest" href="manifest.json">                              <!-- Add2HomeScreen -->
+
+	<title>Touristik App</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="assets/css/bulma.css"/>                    <!-- bulma -->
+	
+	<style>
+		.page {
+			display: none;
+			opacity: 0;
+			transition: opacity 0.4s ease-in-out;
+		}
+		.page.active {
+			display: block;
+			opacity: 1;
+		}
+		.is-hidden {
+			display: none;
+		}
+		/* Chatfenster */
+		.chat-container {
+			margin-top: 10px;
+			background-color: #f5f5f5;
+		}
+		#chatOutput {
+			max-height: 350px;
+			overflow-y: auto;
+			margin-bottom: 5px;
+			padding-right: 5px;
+		}
+		.bot-msg {
+			background-color: #fff;
+			padding: 5px;
+			border-radius: 6px;
+			border-left: 4px solid #3273dc;
+			margin-bottom: 5px;
+		}
+	</style>
+
+	<!-- js -->
+
+	<!-- custom scripts -->
+    <script src="assets/js/n8n.js"></script>                         		<!-- n8n Integration -->
+
+</head>
+<body>
+
+<div id="wrapper">
+	<!--------------------------------->
+	<!-- page1 -->
+	<!--------------------------------->
+	<section id="page1" class="page active page1 is-primary hero is-fullheight">
+
+		<!-- header -->
+		<div class="TravelHeader"></div>
+
+		<!--------------------------------->
+		<!-- content -->
+		<!--------------------------------->
+		<div class="hero-body">
+			<div class="container">
+
+                <h1 class="title">
+                    Touristik App Musterl&ouml;sung Teil B
+                </h1>
+                <h2 class="subtitle">
+                    Startseite
+                </h2>
+
+                <button class="button is-medium is-fullwidth" id="btnToAttraction">Zu den verf&uuml;gbaren Attraktionen</button>
+                <button class="button is-medium is-fullwidth" id="btnOpenStartQR" disabled>QR Code Funktion</button>
+				<button class="button is-medium is-fullwidth" id="btnModalChat" disabled>Chatbot</button>
+				<button class="button is-medium is-fullwidth is-link" id="btnModalAddAttraction" disabled>Attraktion hinzuf&uuml;gen</button>
+                <button class="button is-medium is-fullwidth" disabled>...</button>
+
+                <div class="notification is-info">
+                    <div id="status"></div>
+                </div><!-- /notification -->				
+
+			</div><!-- /container -->
+		</div><!-- /hero-body -->
+
+		<!-- footer -->
+		<div class="TravelFooter"></div>
+
+	</section><!-- /section -->
+	<div class="is-clearfix"></div>
+
+	<!--------------------------------->
+	<!-- page2 -->
+	<!--------------------------------->
+	<section id="page2" class="page page2 is-info hero is-fullheight">
+
+		<!-- header -->
+		<div class="TravelHeader"></div>
+
+		<!--------------------------------->
+		<!-- content -->
+		<!--------------------------------->
+		<div class="hero-body">
+			<div class="container">
+
+                <h1 class="title">
+                    Touristik App - Auswahl
+                </h1>
+
+				<nav class="panel" id="panelWrapper">
+				<!---------------------------------------------------------------->
+                <!-- TODO = Lesen: Dieser Bereich wird per addPanel(...) befuellt"        -->
+                <!---------------------------------------------------------------->
+                <!-- ungefaehr so sieht das Ergebnis von addPanel(...) aus
+				<button id="0" class="panel-block button is-fullwidth" onclick="N8nService.toDetailPage(this.id);"">
+					GoTo Demo Schloss Rapperswil
+				</button>-->
+
+				</nav><!-- /panel -->
+
+			</div><!-- /container -->
+		</div><!-- /hero-body -->
+
+		<!-- footer -->
+		<div class="TravelFooter"></div>
+
+	</section><!-- /section -->
+	<div class="is-clearfix"></div>
+
+	<!--------------------------------->
+	<!-- page3 -->
+	<!--------------------------------->
+	<section id="page3" class="page page3 is-success hero is-fullheight">
+
+		<!-- header -->
+		<div class="TravelHeader"></div>
+
+		<!--------------------------------->
+		<!-- content -->
+		<!--------------------------------->
+		<div class="hero-body is-small">
+			<div class="container">
+
+                <h3 class="title">Attraktion</h3>
+
+                <div class="card">
+					<div class="card-content">
+						<div class="content">
+							<div class="columns">
+								<div class="column">
+									<h5>Kurzinfos</h5>
+									<p id="titleLocation"></p>
+									<p id="descriptionLocation"></p>									
+								</div>
+								<div class="column">
+									<div><a class="button is-fullwidth" id="telLocation"></a></div>
+									<div><a class="button is-fullwidth" id="mailLocation"></a></div>
+									<button class="button is-fullwidth" id="btnShowMap" disabled>siehe N8nService.toDetailPage</button>
+									<button class="button is-fullwidth" id="btnComment">Kommentieren</button>
+									<button class="button is-fullwidth" id="btnToCamera" disabled>Foto</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="modalComment" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card  has-background-grey-lighter">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Kontaktformular</p>
+                            <button class="delete btnCloseModal" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+							<div class="field">
+							<!---------------------------------------------------------------->
+                            <!-- BEWERTUNG einer Attraktion -->
+                            <!---------------------------------------------------------------->
+								<label class="label">Name</label>
+								<div class="control">
+									<input class="input" type="text" id="contactName" placeholder="Ihr Name">
+								</div>
+							</div>							
+							<div class="field">
+								<label class="label">Kommentar</label>
+								<div class="control">
+									<textarea class="textarea" id="contactComment" placeholder="Ihr Kommentar" rows="5"></textarea>
+								</div>
+							</div>
+							<button class="button is-fullwidth" id="btnSendComment">Senden</button> 
+                        </section>
+                    </div>
+                </div>
+
+			</div><!-- /container -->
+		</div><!-- /hero-body -->
+
+		<!-- footer -->
+		<div class="TravelFooter"></div>
+	</section>
+	<div class="is-clearfix"></div>
+
+</div><!-- /wrapper -->
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>

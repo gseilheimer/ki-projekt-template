@@ -1,0 +1,30 @@
+{
+  "short_name": "Touristik App (Add2HS)",
+  "name": "Touristik App with Add to Homescreen",
+  "icons": [
+    {
+      "src": "media/icon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "media/icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "media/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "index.html?start_from_hs",
+  "permissions": [
+    "geolocation",
+    "camera", 
+    "storage",
+    "microphone",
+    "fullscreen"
+  ]
+}

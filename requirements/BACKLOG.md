@@ -10,12 +10,12 @@
 
 | Nr. | Feature | Status | Verantwortlich | Branch |
 |---|---|---|---|---|
-| 00 | Foundation (Grundaufbau) | offen | [Name] | `feature/00-foundation` |
-| 01 | [Featurename] | offen | [Name] | `feature/01-[name]` |
-| 02 | [Featurename] | offen | [Name] | `feature/02-[name]` |
-| 03 | [Featurename] | offen | [Name] | `feature/03-[name]` |
+| 00 | Grundgerüst (App-Shell, Offline) | offen | [Name] | `feature/00-foundation` |
+| 01 | Attraktionen laden (n8n) | offen | [Name] | `feature/01-attraktionen-laden` |
+| 02 | Bewertung senden (n8n) | offen | [Name] | `feature/02-bewertung-senden` |
+| 03 | Standort (Geolocation) | offen | [Name] | `feature/03-standort` |
 
-**Kritischer Pfad:** `00 → 01 → 02 → 03` (diese Kette muss für die Demo stehen)
+**Kritischer Pfad:** `00 → 01 → 02` (diese Kette muss für die Demo stehen; `03` für Karte)
 
 ---
 
@@ -23,8 +23,10 @@
 
 | Nr. | Feature | Status | Verantwortlich | Branch |
 |---|---|---|---|---|
-| 04 | [Featurename] | offen | [Name] | `feature/04-[name]` |
-| 05 | [Featurename] | offen | [Name] | `feature/05-[name]` |
+| 04 | Karte (Google Maps) | offen | [Name] | `feature/04-karte` |
+| 05 | Foto (Kamera) | offen | [Name] | `feature/05-foto` |
+| 06 | QR-Scan (jsQR) | offen | [Name] | `feature/06-qr-scan` |
+| 07 | Erweiterungen (Push u. a.) *(optional)* | offen | [Name] | `feature/07-erweiterungen` |
 
 ---
 

@@ -1,4 +1,4 @@
-# IMPLEMENTATION.md — Feature 01: [Featurename]
+# IMPLEMENTATION.md — Feature NN: [Featurename]
 
 > **Für den KI-Agenten:** Arbeite diese Datei Schritt für Schritt ab.  
 > Hake jeden erledigten Schritt mit `[x]` ab.  
@@ -8,7 +8,7 @@
 **Ziel:** [Ein Satz: Was soll am Ende dieser Umsetzung funktionieren?]  
 **Abhängigkeit:** 00-foundation abgeschlossen  
 **Verantwortlich:** [Name]  
-**Branch:** `feature/01-[name]`
+**Branch:** `feature/NN-[name]`
 
 ---
 
@@ -190,6 +190,6 @@ git commit -m "feat(frontend): [was wurde gebaut]"
 - [ ] Pull Request auf GitHub anlegen
 
 ```bash
-git push origin feature/01-[name]
+git push origin feature/NN-[name]
 # → GitHub öffnen → „Compare & pull request" → Teamkollegen als Reviewer zuweisen
 ```

@@ -1,12 +1,9 @@
-# REQUIREMENTS.md — Anforderungen
+# REQUIREMENTS.md — Anforderungen (Touristik Guide)
 
-> **Lastenheft / SRS (Software Requirements Specification)**
->
-> Ein Lastenheft beschreibt aus Auftraggeberperspektive, *was* ein System leisten soll —  
-> ohne festzulegen, *wie* es umgesetzt wird. Das englische Äquivalent ist die  
-> **SRS (Software Requirements Specification)**, standardisiert in IEEE 830.  
-> In der Praxis werden beide Begriffe oft synonym verwendet.  
-> Diese Datei erfüllt diese Funktion für euer Projekt.
+> **Lastenheft / SRS.** Beschreibt aus Auftraggebersicht, *was* die Anwendung leisten soll.
+> Diese Datei ist mit der LB3-Beispiel-PWA „Touristik Guide" gefüllt. Für ein **eigenes**
+> Projekt hier die Inhalte ersetzen (Struktur beibehalten). Detail je Feature:
+> `requirements/NN-*/FEATURE.md` + `USERSTORY.md`.
 >
 > **Änderungen nur gemeinsam als Team.**
 
@@ -14,13 +11,16 @@
 
 ## Projektbeschreibung
 
-**Projektname:** [HIER EINTRAGEN]  
-**Auftraggeber / Kontext:** [z.B. Hochschule Offenburg, Kurs E-Business SoSe 2026]  
-**Zielgruppe:** [Wer nutzt die Anwendung? z.B. Studierende, Verwaltungsmitarbeitende]
+**Projektname:** Touristik Guide (Progressive Web App)
+**Auftraggeber / Kontext:** HSLU / HSO — E-Business / Mobile Commerce, LB3
+**Zielgruppe:** Tourist:innen vor Ort (mobil, oft schlechtes Netz); Betreiber (erhält Feedback)
 
 ### Kernnutzen (Zusammenfassung)
 
-[2–4 Sätze: Was ist der Kernnutzen der Anwendung? Welches Problem löst sie?]
+Eine installier- und offline-fähige PWA, mit der Tourist:innen Sehenswürdigkeiten entdecken
+(Liste + Details aus einem n8n-Webhook), die Entfernung zum eigenen Standort und eine Karte
+sehen, Feedback abgeben sowie Fotos aufnehmen und QR-Codes scannen. Backend ist ein
+n8n-Workflow (Low-Code) — kein eigener Server.
 
 ---
 
@@ -28,68 +28,28 @@
 
 | Rolle | Beschreibung |
 |---|---|
-| [z.B. Gast] | [Was kann diese Rolle? Was nicht?] |
-| [z.B. Angemeldete Person] | [Was kann diese Rolle zusätzlich?] |
-| [z.B. Verwaltung] | [Zugang zur Verwaltungsansicht] |
+| Tourist:in (Gast) | Sieht Attraktionen, Entfernungen, Karte; gibt Bewertungen ab; nutzt Foto/QR. Keine Anmeldung. |
+| Betreiber | Empfängt Bewertungen/Meldungen über n8n (E-Mail/Workflow). Nicht Teil der App-UI. |
 
 ---
 
-## Features
+## Features (Überblick)
 
-### Feature 01: [Name]
+> Kernanforderung = für die Demo nötig; Erweiterung = danach. Details in den Feature-Ordnern.
 
-**Priorität:** Kernanforderung / Erweiterung  
-**Abhängigkeit:** — (oder: Feature 00)
+| Nr. | Feature | Priorität | Abhängigkeit | LB3 |
+|---|---|---|---|---|
+| 00 | Grundgerüst (App-Shell, ServiceWorker, Offline) | Kern | — | A1–A5 |
+| 01 | Attraktionen laden (Liste + Detail aus n8n) | Kern | 00 | B2–B4 |
+| 02 | Bewertung senden (Formular → n8n) | Kern | 01 | B5 (+D1–D4) |
+| 03 | Standort (Geolocation + Entfernung) | Kern | 01 | C1–C3 |
+| 04 | Karte (Google Maps) | Erweiterung | 03 | C4, C5 |
+| 05 | Foto (Kamera aufnehmen/anzeigen) | Erweiterung | 01 | C7, C8 |
+| 06 | QR-Scan (jsQR) | Erweiterung | 01 | C9, C10 |
+| 07 | Erweiterungen (Push u. a.) *(optional)* | Kür | 02 | D1–D4 |
 
-**Ziel:** [Wer profitiert, und warum?]
-
-**Nutzeranforderungen (User Stories):**
-
-> Als [Rolle] möchte ich [Aktion], damit [Nutzen].
-
-- Als [Rolle] möchte ich [Aktion], damit [Nutzen].
-- Als [Rolle] möchte ich [Aktion], damit [Nutzen].
-
-**Abnahmekriterien:**
-
-- [ ] [Konkrete, überprüfbare Aussage — nicht „soll gut sein", sondern was genau passiert]
-- [ ] [z.B. „Die Suche liefert Treffer auch bei Teilbegriffen"]
-- [ ] [z.B. „Bei keinem Treffer erscheint eine klare Rückmeldung — kein stilles Scheitern"]
-
----
-
-### Feature 02: [Name]
-
-**Priorität:** Kernanforderung / Erweiterung  
-**Abhängigkeit:** Feature 01
-
-**Ziel:** [Wer profitiert, und warum?]
-
-**Nutzeranforderungen:**
-
-- Als [Rolle] möchte ich [Aktion], damit [Nutzen].
-
-**Abnahmekriterien:**
-
-- [ ] [Abnahmekriterium]
-- [ ] [Abnahmekriterium]
-
----
-
-### Feature 03: [Name]
-
-**Priorität:** Erweiterung  
-**Abhängigkeit:** Feature 01, Feature 02
-
-**Ziel:** [Wer profitiert, und warum?]
-
-**Nutzeranforderungen:**
-
-- Als [Rolle] möchte ich [Aktion], damit [Nutzen].
-
-**Abnahmekriterien:**
-
-- [ ] [Abnahmekriterium]
+**Nutzeranforderungen & Abnahmekriterien:** je Feature in `requirements/NN-*/USERSTORY.md`
+bzw. `FEATURE.md` (nicht hier duplizieren).
 
 ---
 
@@ -97,15 +57,19 @@
 
 | Anforderung | Beschreibung |
 |---|---|
-| Leistung | [z.B. „Suchergebnisse erscheinen in unter einer Sekunde"] |
-| Sicherheit | [z.B. „Keine vertraulichen Daten im Browser gespeichert"] |
-| Bedienbarkeit | [z.B. „Ohne Einweisung für die Zielgruppe nutzbar"] |
-| Umfang | [Was ist ausdrücklich NICHT Teil des Projekts?] |
+| Offline-Fähigkeit | Nach erstem Laden startet die App offline (ServiceWorker, cache-first) |
+| Ausführung | Statische Vanilla-PWA (Bulma, kein Build); läuft über `http://localhost` (secure context), nicht `file://` |
+| Sicherheit | Keine Anmeldung/keine vertraulichen Daten im Browser; Kamera/Standort nur nach Freigabe |
+| Bedienbarkeit | Für Tourist:innen ohne Einweisung nutzbar; responsive (Bulma) |
+| Backend | Datenanbindung ausschließlich über n8n-Webhooks (Low-Code) |
+| Umfang | Siehe „Abgrenzung" |
 
 ---
 
 ## Abgrenzung — was wir nicht bauen
 
-- [z.B. „Kein Bezahlsystem"]
-- [z.B. „Keine mobile App — nur Webanwendung"]
-- [z.B. „Keine automatischen Benachrichtigungen per E-Mail"]
+- Kein eigenes Backend/keine eigene Datenbank (nur n8n-Webhooks)
+- Keine Nutzer-Anmeldung/Registrierung
+- Keine Offline-Karten (Google Maps braucht Netz)
+- Keine dauerhafte Server-Speicherung von Fotos
+- Keine native App (PWA, „Add to Homescreen")

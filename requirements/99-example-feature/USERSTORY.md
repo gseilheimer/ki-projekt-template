@@ -1,8 +1,9 @@
 # USERSTORY.md — Nutzeranforderungen: [Featurename]
 
-> **Hinweis:** Dies ist ein Beispiel-Feature zur Orientierung.  
+> **Hinweis:** Generisches Beispiel-Feature zur Orientierung (Platzhalter).  
 > Benennt Datei und Ordner entsprechend eurem echten Feature.  
-> Schema: `requirements/01-euer-feature/USERSTORY.md`
+> Schema: `requirements/NN-euer-feature/USERSTORY.md` (NN = laufende Nummer).  
+> Ausgefüllte Beispiele: die echten Features `00-foundation` … `06-qr-scan`.
 
 ---
 

@@ -8,18 +8,22 @@
 
 ## Abhängigkeitsgraph
 
-```
-[HIER EINTRAGEN: Welche Features hängen voneinander ab?]
+> Gefüllt für die LB3-Beispiel-PWA „Touristik Guide". Für ein eigenes Projekt ersetzen.
 
-Beispiel:
-✅ 00-foundation (Server, Datenbankzugriff, Frontend-Grundstruktur)
-    ├── 01-feature-a  (kann nach Foundation starten)
-    │       └── 03-feature-c  (braucht Feature A)
-    └── 02-feature-b  (kann parallel zu Feature A laufen)
-            └── 04-feature-d  (braucht Feature B)
+```
+00-foundation (App-Shell, ServiceWorker, Offline, Navigation)
+    └── 01-attraktionen-laden (Liste + Detail aus n8n)
+            ├── 02-bewertung-senden (Formular → n8n; teilt n8n.js)
+            ├── 03-standort (Geolocation + Entfernung je Eintrag)
+            │       └── 04-karte (Google Maps; braucht aktuelle Position)
+            ├── 05-foto (Kamera; technisch unabhängig)
+            └── 06-qr-scan (jsQR; technisch unabhängig)
+    (07-erweiterungen: optional, Push u. a. — baut auf 02)
 ```
 
-**Kritischer Pfad:** `00 → 01 → 03` (minimale, demo-fähige Kette)
+**Kritischer Pfad:** `00 → 01 → 02` (minimale, demo-fähige Kette: App läuft, Attraktionen
+sichtbar, Bewertung sendbar). Für die Karten-Demo zusätzlich `01 → 03 → 04`.
+Nach `01` sind `03`, `05`, `06` parallel bearbeitbar; `04` braucht `03`.
 
 ---
 
@@ -28,9 +32,12 @@ Beispiel:
 | Feature | Verantwortlich | Branch | Abhängigkeit |
 |---|---|---|---|
 | 00-foundation | [Name] | `feature/00-foundation` | — |
-| 01-[name] | [Name] | `feature/01-[name]` | 00 |
-| 02-[name] | [Name] | `feature/02-[name]` | 00 |
-| 03-[name] | [Name] | `feature/03-[name]` | 01 |
+| 01-attraktionen-laden | [Name] | `feature/01-attraktionen-laden` | 00 |
+| 02-bewertung-senden | [Name] | `feature/02-bewertung-senden` | 01 |
+| 03-standort | [Name] | `feature/03-standort` | 01 |
+| 04-karte | [Name] | `feature/04-karte` | 03 |
+| 05-foto | [Name] | `feature/05-foto` | 01 |
+| 06-qr-scan | [Name] | `feature/06-qr-scan` | 01 |
 
 ---
 
